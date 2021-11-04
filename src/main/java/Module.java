@@ -18,6 +18,7 @@ public class Module {
     public void addCourse(Course course){
         courses.add(course);
         ArrayList<Student> studentsInCourse = course.getStudents();
+        //add relevant students from related course
         for(Student s : studentsInCourse)
             addStudent(s);
     }
@@ -52,6 +53,7 @@ public class Module {
 
     @Override
     public String toString() {
+        //special string to avoid recursive call infinite loop
         String studentsString = "";
         for(Student s : students)
             studentsString += s.getName() + " ID: " + s.getId() + ", ";
